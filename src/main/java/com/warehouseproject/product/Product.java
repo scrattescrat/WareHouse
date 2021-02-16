@@ -43,6 +43,10 @@ public abstract class Product implements Printable {
         LOGGER.info("Manufacturer: " + manufacturer);
     }
 
-
-
+    @Override
+    public String toString() {
+        return
+                "price=" + price +
+                ", manufacturer='" + manufacturer + '\'';
+    }
 }

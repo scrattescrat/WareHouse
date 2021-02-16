@@ -32,4 +32,9 @@ public final class PipeCoil extends Product  {
         super.printInfo();
         LOGGER.info("Length: " + length + " metres");
     }
+
+    @Override
+    public String toString() {
+        return ("Pipe Coil: " + super.toString() + ", length=" + length);
+    }
 }

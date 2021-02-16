@@ -31,4 +31,10 @@ public class Radiator extends Product{
         super.printInfo();
         LOGGER.info("Weight: " + weight + " kg");
     }
+
+    @Override
+    public String toString() {
+        return ("Radiator: " + super.toString() + ", weight=" + weight);
+
+    }
 }

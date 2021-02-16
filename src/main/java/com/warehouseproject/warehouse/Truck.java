@@ -9,31 +9,28 @@ import java.util.List;
 public class Truck {
     private static final Logger LOGGER = Logger.getLogger(Truck.class);
 
-    private List<Product> capacity;
-    private int size = 10;
+    private List<Product> productList;
+
 
     public Truck(){
-        capacity = new ArrayList<Product>();
+        productList = new ArrayList<Product>();
     }
 
-    public Truck(Product product){
-        capacity = new ArrayList<Product>();
-
+    public List<Product> getProductList() {
+        return productList;
     }
 
-    public List<Product> getCapacity() {
-        return capacity;
-    }
-
-    public void addProductToTruck(Product product){
-        capacity.add(product);
-        LOGGER.info("New product in the truck");
+    public void addProductToTruck(Product product, int quantityOfProducts){
+        for (int i = 0; i < quantityOfProducts; i++) {
+            productList.add(product);
+        }
+        LOGGER.info(quantityOfProducts + " item(s) " + product.toString() + " added in truck.");
+        LOGGER.info("Truck contains " + productList.size() + " items.");
     }
 
     public void printTruck(){
-        for (Product product : capacity) {
+        for (Product product : productList) {
             LOGGER.info(product.toString());
-
         }
     }
 

@@ -16,5 +16,8 @@ public final class Fitting extends Product{
 
     }
 
-
+    @Override
+    public String toString() {
+        return ("Fitting: " + super.toString());
+    }
 }
