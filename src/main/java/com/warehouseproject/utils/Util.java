@@ -1,11 +1,8 @@
-package com.warehouseproject.menu;
+package com.warehouseproject.utils;
 
-import com.warehouseproject.warehouse.MyException;
+import com.warehouseproject.menu.Menu;
 import org.apache.log4j.Logger;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class Util {

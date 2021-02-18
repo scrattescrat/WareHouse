@@ -1,33 +1,21 @@
 package com.warehouseproject.menu;
 
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 
-public final class ReadFromProperty {
+public final class ReadFromProperties {
 
-    static Class clazz = ReadFromProperty.class;
-
-    public static String getProperty(String path, String key) {
+    public static String getValueFromProperties (String path, String key) {
         Properties properties = new Properties();
         try{
-//            FileInputStream fileStream = new FileInputStream("/"+path);
-            InputStream fileStream = clazz.getResourceAsStream("/"+path);
+            FileInputStream fileStream = new FileInputStream(path);
             properties.load(fileStream);
             fileStream.close();
-
             return properties.getProperty(key);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
         return "";
     }
-
-
-
-
-
-
-
 }

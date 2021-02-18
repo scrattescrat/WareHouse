@@ -1,6 +1,5 @@
 package com.warehouseproject.product;
 
-
 import org.apache.log4j.Logger;
 
 public abstract class Product implements Printable {
@@ -33,9 +32,7 @@ public abstract class Product implements Printable {
         this.manufacturer = manufacturer;
     }
 
-
     public abstract void onBoard();
-
 
     @Override
     public void printInfo(){

@@ -11,13 +11,16 @@ public class Truck {
 
     private List<Product> productList;
 
-
     public Truck(){
         productList = new ArrayList<Product>();
     }
 
     public List<Product> getProductList() {
         return productList;
+    }
+
+    public int getProductListSize() {
+        return productList.size();
     }
 
     public void addProductToTruck(Product product, int quantityOfProducts){
@@ -33,6 +36,5 @@ public class Truck {
             LOGGER.info(product.toString());
         }
     }
-
 
 }
