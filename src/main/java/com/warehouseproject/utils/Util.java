@@ -8,18 +8,6 @@ import java.util.Scanner;
 public class Util {
     private static final Logger LOGGER = Logger.getLogger(Menu.class);
 
-//    public static int selection() throws MyException {
-//        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-////        String quantity = bufferedReader.readLine();
-////        int i = Integer.parseInt(quantity);
-////        return i;
-//        try {
-//            return Integer.parseInt(bufferedReader.readLine());
-//        } catch (IOException e) {
-//            throw new MyException(e.getMessage());
-//        }
-//
-//    }
 
     public static int scanValue(){
         int value = 0;

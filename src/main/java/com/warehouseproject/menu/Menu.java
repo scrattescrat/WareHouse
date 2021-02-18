@@ -33,30 +33,20 @@ public class Menu {
 
         createDelivery(productType, quantityOfProducts);
 
-        LOGGER.info("-----------------------");
+        LOGGER.info("------------------------------------------------------------------");
 
         JsonExec jsonAction = new JsonExec();
         jsonAction.convertJavaToJsonFile(truck, "truck.json");
 
-        if(askOtherAction()) {
+        if(isOtherAction()) {
             menuSelection();
         };
-//
 
 
-////        String name = ReadFromProperty.getProperty("addresses.properties", "name");
-////        String address = ReadFromProperty.getProperty("addresses.properties", "address");
-////        String size = ReadFromProperty.getProperty("addresses.properties", "size");
-////        System.out.println(name + " " + address + " " + "available: " + size);
-//
-//        String name1 = ReadFromProperties.getValueFromProperties("src/main/resources/addresses.properties", "name1");
-//        LOGGER.info(name1);
-//
-//        WriteToProperties.setValueToProperties("src/main/resources/addresses.properties", "size1", "80");
 
     }
 
-    private boolean askOtherAction() {
+    private boolean isOtherAction() {
         System.out.println("Do you want to continue? " +
                 "Choose: '1' - Add more products; '2' - Select delivery point; '3' - Exit");
         int decision = Util.scanValue();
@@ -109,7 +99,7 @@ public class Menu {
                     truck.addProductToTruck(fitting, quantityOfProducts);
                     break;
                 default:
-                    throw new MyException("Wrong number");
+                    throw new MyException("Wrong product number");
             }
         }catch (MyException e){
             LOGGER.error("Wrong number: " + e.getMessage());

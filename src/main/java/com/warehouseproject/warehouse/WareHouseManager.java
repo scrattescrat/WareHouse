@@ -51,18 +51,18 @@ public class WareHouseManager {
         }
     }
 
-    private void loadFromTruckToWareHouse (int size, Truck truck, int itemCountForUplooad) {
+    private void loadFromTruckToWareHouse (int size, Truck truck, int itemCountForUpload) {
         WareHouse wareHouse = new WareHouse(size);
-        List<Product> productsForUplooad = new ArrayList<>();
+        List<Product> productsForUpload = new ArrayList<>();
 
-        for (int i = 0; i < itemCountForUplooad; i++) {
-            productsForUplooad.add(truck.getProductList().get(i));
+        for (int i = 0; i < itemCountForUpload; i++) {
+            productsForUpload.add(truck.getProductList().get(i));
         }
 
-        for (Product product: productsForUplooad) {
+        for (Product product: productsForUpload) {
             truck.getProductList().remove(product);
         }
-        wareHouse.setProductList(productsForUplooad);
+        wareHouse.setProductList(productsForUpload);
 
         LOGGER.info("Truck contains: " + truck.getProductListSize() + " items after unloading.");
         LOGGER.info("There are : " + wareHouse.getProductListSize() + " occupied places and "
