@@ -10,11 +10,14 @@ import com.warehouseproject.warehouse.Truck;
 import com.warehouseproject.warehouse.WareHouseManager;
 import org.apache.log4j.Logger;
 
+import static java.lang.Integer.parseInt;
+
 public class Menu {
 
     private static final Logger LOGGER = Logger.getLogger(Menu.class);
 
-    private static final String PROPERTY_FILE_PATH = "src/main/resources/addresses.properties";
+    private static final String PROPERTY_FILE_PATH_ADDRESSES = "src/main/resources/addresses.properties";
+    private static final String PROPERTY_FILE_PATH_PRODUCTS = "src/main/resources/products.properties";
 
     private Truck truck = new Truck();
 
@@ -53,17 +56,17 @@ public class Menu {
         if (decision == 1) {
             return true;
         } else if (decision == 2) {
-            String name1 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH, "name1");
-            String address1 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH, "address1");
-            String size1 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH, "size1");
+            String name1 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH_ADDRESSES, "name1");
+            String address1 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH_ADDRESSES, "address1");
+            String size1 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH_ADDRESSES, "size1");
 
-            String name2 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH, "name2");
-            String address2 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH, "address2");
-            String size2 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH, "size2");
+            String name2 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH_ADDRESSES, "name2");
+            String address2 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH_ADDRESSES, "address2");
+            String size2 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH_ADDRESSES, "size2");
 
-            String name3 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH, "name3");
-            String address3 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH, "address3");
-            String size3 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH, "size3");
+            String name3 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH_ADDRESSES, "name3");
+            String address3 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH_ADDRESSES, "address3");
+            String size3 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH_ADDRESSES, "size3");
 
             System.out.println("1. - " + name1 + " " + address1 + " " + "available: " + size1);
             System.out.println("2. - " + name2 + " " + address2 + " " + "available: " + size2);
@@ -83,9 +86,26 @@ public class Menu {
     }
 
     private void createDelivery(int productType, int quantityOfProducts) {
-        Radiator radiator = new Radiator(76, "Kermi", 2);
-        Fitting fitting = new Fitting(174, "Kermi");
-        PipeCoil pipeCoil = new PipeCoil(450, "Uponor", 400);
+
+        String price1 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH_PRODUCTS, "price1");
+        int radiatorPrice = parseInt(price1);
+        String manufacturer1 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH_PRODUCTS, "manufacturer1");
+        String weight1 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH_PRODUCTS, "weight1");
+        int radiatorWeight = parseInt(weight1);
+
+        String price2 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH_PRODUCTS, "price2");
+        int pipecoilPrice = parseInt(price2);
+        String manufacturer2 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH_PRODUCTS, "manufacturer2");
+        String length2 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH_PRODUCTS, "length2");
+        int pipecoilLength = parseInt(length2);
+
+        String price3 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH_PRODUCTS, "price3");
+        int fittingPrice = parseInt(price3);
+        String manufacturer3 = ReadFromProperties.getValueFromProperties(PROPERTY_FILE_PATH_PRODUCTS, "manufacturer3");
+
+        Radiator radiator = new Radiator(radiatorPrice, manufacturer1, radiatorWeight);
+        PipeCoil pipeCoil = new PipeCoil(pipecoilPrice, manufacturer2, pipecoilLength);
+        Fitting fitting = new Fitting(fittingPrice, manufacturer3);
 
         try{
             switch (productType) {
